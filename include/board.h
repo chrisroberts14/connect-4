@@ -11,14 +11,19 @@ enum class cell_state {
 };
 
 class board {
-  std::vector<std::vector<int>> board_state;
+  std::vector<std::vector<cell_state>> board_state;
   int rows;
   int cols;
   int win_length;
+
+  [[nodiscard]] bool row_win(cell_state player) const;
+  [[nodiscard]] bool col_win(cell_state player) const;
+  [[nodiscard]] bool diag_win(cell_state player) const;
 public:
   board(int rows, int cols, int win_length);
+  std::vector<int> get_valid_moves();
   void make_move(int col, cell_state player);
-  bool has_won(cell_state player);
+  [[nodiscard]] bool has_won(cell_state player) const;
 };
 
 #endif //BOARD_H

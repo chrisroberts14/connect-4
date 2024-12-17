@@ -11,13 +11,9 @@ class game {
 // Each game has 2 players
 std::unique_ptr<player> player1;
 std::unique_ptr<player> player2;
-std::unique_ptr<board> game_board;
+std::shared_ptr<board> game_board;
 public:
-  // Constructor
-  game(std::unique_ptr<player> player1, std::unique_ptr<player> player2);
-  // Destructor
-  ~game();
-  // Run the game
+  game(std::string player1, std::string player2, int rows, int cols, int win_length);
   void run();
 };
 
