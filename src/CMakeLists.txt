@@ -1,8 +1,7 @@
-add_library(lib
-        board.cpp
-        game.cpp
-        player.cpp
-        players/randomPlayer.cpp
+set(SRC_FILES
+        ${CMAKE_CURRENT_SOURCE_DIR}/board.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/game.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/player.cpp
+        ${CMAKE_CURRENT_SOURCE_DIR}/players/randomPlayer.cpp
+        PARENT_SCOPE
 )
-
-target_include_directories(lib PUBLIC ${CMAKE_SOURCE_DIR}/include)

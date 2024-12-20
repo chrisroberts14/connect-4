@@ -24,6 +24,8 @@ public:
   std::vector<int> get_valid_moves();
   void make_move(int col, cell_state player);
   [[nodiscard]] bool has_won(cell_state player) const;
+  bool is_full() const;
+  void print() const;
 };
 
 #endif //BOARD_H

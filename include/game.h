@@ -13,8 +13,8 @@ std::unique_ptr<player> player1;
 std::unique_ptr<player> player2;
 std::shared_ptr<board> game_board;
 public:
-  game(std::string player1, std::string player2, int rows, int cols, int win_length);
-  void run();
+  game(int rows, int cols, int win_length);
+  void run() const;
 };
 
 #endif //GAME_H

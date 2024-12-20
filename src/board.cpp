@@ -4,7 +4,10 @@
 
 #include "board.h"
 
-#include <bits/ranges_algo.h>
+#include <algorithm>
+#include <functional>
+#include <iostream>
+#include <fmt/core.h>
 
 board::board(const int rows, const int cols, const int win_length) : rows(rows), cols(cols), win_length(win_length) {
   // Initialize the board to be empty
@@ -33,7 +36,7 @@ void board::make_move(const int col, const cell_state player) {
   }
 }
 
-bool board::row_win(cell_state player) const {
+bool board::row_win(const cell_state player) const {
   // Check for a win in each row
   for (int row = 0; row < rows; row++) {
     for (int col = 0; col < cols - win_length + 1; col++) {
@@ -107,12 +110,24 @@ bool board::diag_win(cell_state player) const {
 }
 
 
-bool board::has_won(cell_state player) const {
+bool board::has_won(const cell_state player) const {
   // Check for a win
   if (row_win(player) || col_win(player) || diag_win(player)) {
     return true;
   }
   return false;
 }
+
+bool board::is_full() const {
+  // Check if the board is full
+  return std::ranges::all_of(board_state, [](const std::vector<cell_state> &row) {
+    return std::ranges::all_of(row, [](const cell_state cell) { return cell != cell_state::empty; });
+  });
+}
+
+void board::print() const {
+  // Print the board with red and blue pieces
+}
+
 
 

@@ -11,5 +11,5 @@ void randomPlayer::make_move() {
   std::uniform_int_distribution<> dis(0, static_cast<int>(valid_moves.size()) - 1);
   const int move = valid_moves[dis(gen)];
   // Make the move
-  game_board.lock()->make_move(move, cell_state::player1);
+  game_board.lock()->make_move(move, player_id);
 }
