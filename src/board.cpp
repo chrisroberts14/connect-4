@@ -6,8 +6,8 @@
 
 #include <algorithm>
 #include <functional>
-#include <iostream>
 #include <fmt/core.h>
+#include <fmt/color.h>
 
 board::board(const int rows, const int cols, const int win_length) : rows(rows), cols(cols), win_length(win_length) {
   // Initialize the board to be empty
@@ -127,6 +127,20 @@ bool board::is_full() const {
 
 void board::print() const {
   // Print the board with red and blue pieces
+  for (int row = rows - 1; row >= 0; row--) {
+    fmt::print("|");
+    for (int col = 0; col < cols; col++) {
+      if (board_state[row][col] == cell_state::player1) {
+        fmt::print(fmt::fg(fmt::color::red) | fmt::emphasis::bold, " O ");
+      } else if (board_state[row][col] == cell_state::player2) {
+        fmt::print(fmt::fg(fmt::color::blue) | fmt::emphasis::bold, " O ");
+      } else {
+        fmt::print("   ");
+      }
+      fmt::print("|");
+    }
+    fmt::print("\n");
+  }
 }
 
 
