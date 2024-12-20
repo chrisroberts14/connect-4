@@ -135,6 +135,12 @@ void board::print() const {
     }
     fmt::print("\n");
   }
+  // Add column numbers
+  fmt::print(" ");
+  for (int col = 0; col < cols; col++) {
+    fmt::print(fmt::emphasis::bold, " {} ", col);
+    fmt::print(" ");
+  }
 }
 
 

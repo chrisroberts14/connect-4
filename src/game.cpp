@@ -4,6 +4,7 @@
 
 #include "game.h"
 
+#include <humanPlayer.h>
 #include <iostream>
 #include <randomPlayer.h>
 
@@ -11,7 +12,7 @@ game::game(int rows, int cols, int win_length) {
     // Create the game board
     game_board = std::make_shared<board>(rows, cols, win_length);
     // Create the players
-    player1 = std::make_unique<randomPlayer>("Player 1", game_board, cell_state::player1);
+    player1 = std::make_unique<humanPlayer>("Player 1", game_board, cell_state::player1);
     player2 = std::make_unique<randomPlayer>("Player 2", game_board, cell_state::player2);
 }
 
