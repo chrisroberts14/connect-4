@@ -1,12 +1,6 @@
-//
-// Created by chris on 17/12/24.
-//
-
 #include "board.h"
-
 #include <algorithm>
 #include <functional>
-#include <fmt/core.h>
 #include <fmt/color.h>
 
 board::board(const int rows, const int cols, const int win_length) : rows(rows), cols(cols), win_length(win_length) {
